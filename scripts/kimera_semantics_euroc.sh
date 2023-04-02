@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd ~/ghar/kimera_ws
+
 # Create a tmux session
 session_name="kimera_$(date +%s)"
 tmux new-session -d -s $session_name 
@@ -30,19 +32,19 @@ tmux send-keys "sleep 3 && roslaunch kimera_semantics_ros kimera_semantics_euroc
 
 # Run the segmentation 
 tmux select-pane -t 2
-tmux send-keys "roslaunch semantic_segmentation_ros segmentor.launch" Enter
+# tmux send-keys "roslaunch semantic_segmentation_ros segmentor.launch" Enter
 
 # Run the rosbag
 tmux select-pane -t 3
-tmux send-keys "sleep 6 && rosbag play mrsd-lab-back.bag --clock" Enter
+# tmux send-keys "sleep 6 && rosbag play mrsd-lab-back.bag --clock" Enter
 
 # Run rviz
 tmux select-pane -t 4
-tmux send-keys "sleep 8 && rviz -d $(rospack find kimera_semantics_ros)/rviz/kimera_realsense_metric.rviz" Enter
+tmux send-keys "sleep 8 && rviz -d $(rospack find kimera_semantics_ros)/rviz/kimera_semantics_gt.rviz" Enter
 
 # 
 tmux select-pane -t 5
-tmux send-keys $ls Enter
+tmux send-keys "rqt" Enter
 
 # Attach to the tmux session
 tmux -2 attach-session -t $session_name -c /home/madhu/work/ros1/ghar/kimera_ws
