@@ -36,7 +36,7 @@ tmux select-pane -t 2
 tmux send-keys "roslaunch semantic_segmentation_ros segmentor.launch" Enter
 
 # Run the camera 
-tmux select-pane -t 2
+tmux select-pane -t 3
 tmux send-keys "roslaunch realsense2_camera rs_camera_ghar.launch" Enter
 
 # Run rviz

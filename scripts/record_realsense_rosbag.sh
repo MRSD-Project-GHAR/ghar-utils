@@ -22,7 +22,7 @@ tmux send-keys "roslaunch realsense2_camera rs_camera_ghar.launch" Enter
 tmux select-pane -t 2
 tmux send-keys 'rosbag record -a -O data.bag -x "/(.*)/theora/(.*)|(.*)/theora|/(.*)/compressed/(.*)|(.*)/compressed|/(.*)/compressedDepth/(.*)|(.*)/compressedDepth"' Enter
 
-tmux select-pane -t 2
+tmux select-pane -t 3
 
 
 # Attach to the tmux session
