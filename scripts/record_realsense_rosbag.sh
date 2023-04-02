@@ -15,11 +15,13 @@ tmux selectp -t 0    # select the first (0) pane
 tmux splitw -v -p 50 # split it into two halves
 tmux selectp -t 0    # go back to the first pane
 tmux splitw -h -p 50 # split it into two halves
+tmux selectp -t 2    # go back to the first pane
+tmux splitw -h -p 50 # split it into two halves
 
 # Run the roslaunch command in the first pane
 tmux select-pane -t 0
+tmux send-keys "roslaunch realsense2_camera rs_camera_ghar.launch" Enter
 tmux send-keys "rosrun dynamic_reconfigure dynparam set /camera/stereo_module emitter_enabled 0" Enter
-tmux send-keys "sleep 3 && roslaunch realsense2_camera rs_camera_ghar.launch" Enter
 
 # Run the teleop.py script in the second pane
 tmux select-pane -t 1
