@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+gnome-termial
+
 cd ~/ghar/kimera_ws
 
 # Create a tmux session
@@ -44,7 +46,7 @@ tmux send-keys "sleep 8 && rviz -d $(rospack find kimera_semantics_ros)/rviz/kim
 
 # 
 tmux select-pane -t 5
-tmux send-keys "rqt" Enter
+tmux send-keys "sleep 9 && rqt" Enter
 
 # Attach to the tmux session
 tmux -2 attach-session -t $session_name -c /home/madhu/work/ros1/ghar/kimera_ws
