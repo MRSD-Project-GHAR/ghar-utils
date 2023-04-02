@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 gnome-termial
-
 cd ~/ghar/kimera_ws
+
+# Kill previous session
+tmux kill-session
 
 # Create a tmux session
 session_name="kimera_$(date +%s)"
@@ -27,11 +29,11 @@ tmux splitw -h -p 40 # split it into two halves
 # Run the kimera_vio
 tmux select-pane -t 0
 tmux send-keys "rosrun dynamic_reconfigure dynparam set /camera/stereo_module emitter_enabled 0" Enter
-tmux send-keys "roslaunch kimera_vio_ros kimera_vio_ros.launch run_stereo_dense:=true  should_use_sim_time:=false" Enter
+tmux send-keys "roslaunch kimera_vio_ros kimera_vio_ros_realsense_IR.launch run_stereo_dense:=true should_use_sim_time:=false" Enter
 
 # Run the kimera_semantics
 tmux select-pane -t 1
-tmux send-keys "sleep 3 && roslaunch kimera_semantics_ros kimera_semantics_euroc.launch  should_use_sim_time:=false" Enter
+tmux send-keys "sleep 3 && roslaunch kimera_semantics_ros kimera_metric_realsense.launch should_use_sim_time:=false" Enter
 
 # Run the segmentation 
 tmux select-pane -t 2
