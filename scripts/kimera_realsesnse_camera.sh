@@ -35,7 +35,7 @@ tmux send-keys "sleep 3 && roslaunch kimera_semantics_ros kimera_semantics_euroc
 
 # Run the segmentation 
 tmux select-pane -t 2
-tmux send-keys "roslaunch semantic_segmentation_ros segmentor.launch" Enter
+tmux send-keys "roslaunch semantic_segmentation_ros segmenter.launch" Enter
 
 # Run the camera 
 tmux select-pane -t 3
