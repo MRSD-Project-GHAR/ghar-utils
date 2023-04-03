@@ -26,15 +26,16 @@ tmux splitw -h -p 40 # split it into two halves
 
 # Run the kimera_vio
 tmux select-pane -t 0
-tmux send-keys "roslaunch kimera_vio_ros kimera_vio_ros.launch run_stereo_dense:=true  should_use_sim_time:=true" Enter
+tmux send-keys "roslaunch kimera_vio_ros kimera_vio_ros.launch run_stereo_dense:=true should_use_sim_time:=true run_stereo_dense:=true" Enter
 
 # Run the kimera_semantics
 tmux select-pane -t 1
-tmux send-keys "sleep 3 && roslaunch kimera_semantics_ros kimera_semantics_euroc.launch  should_use_sim_time:=true" Enter
+tmux send-keys "sleep 3 && roslaunch kimera_semantics_ros kimera_semantics_euroc.launch should_use_sim_time:=true metric_semantic_reconstruction:=false run_stereo_dense:=true" Enter
 
 # Run the segmentation 
 tmux select-pane -t 2
 # tmux send-keys "roslaunch semantic_segmentation_ros segmentor.launch" Enter
+tmux send-keys "sleep 4 && rosbag play ../V1_01_easy.bag --clock" Enter
 
 # Run the rosbag
 tmux select-pane -t 3
@@ -42,11 +43,11 @@ tmux select-pane -t 3
 
 # Run rviz
 tmux select-pane -t 4
-tmux send-keys "sleep 8 && rviz -d $(rospack find kimera_semantics_ros)/rviz/kimera_semantics_gt.rviz" Enter
+tmux send-keys "sleep 8 && rviz -d $(rospack find kimera_semantics_ros)/rviz/kimera_semantics_gt_euroc.rviz" Enter
 
 # 
 tmux select-pane -t 5
 tmux send-keys "sleep 9 && rqt" Enter
 
 # Attach to the tmux session
-tmux -2 attach-session -t $session_name -c /home/madhu/work/ros1/ghar/kimera_ws
+tmux -2 attach-session -t $session_name -c ~/ghar/kimera_ws

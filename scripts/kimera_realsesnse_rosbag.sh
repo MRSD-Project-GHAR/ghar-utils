@@ -51,4 +51,4 @@ tmux select-pane -t 5
 tmux send-keys "sleep 9 && rqt" Enter
 
 # Attach to the tmux session
-tmux -2 attach-session -t $session_name -c /home/madhu/work/ros1/ghar/kimera_ws
+tmux -2 attach-session -t $session_name -c ~/ghar/kimera_ws
