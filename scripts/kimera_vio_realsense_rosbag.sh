@@ -16,7 +16,7 @@ tmux send-keys "roslaunch kimera_vio_ros kimera_vio_ros_realsense_IR.launch" Ent
 
 # Run the teleop.py script in the second pane
 tmux select-pane -t 1
-tmux send-keys "sleep 4 && rosbag play mrsd-lab-back.bag --clock" Enter
+tmux send-keys "sleep 4 && rosbag play nsh-basement-no-tf.bag --clock" Enter
 
 # Change the directory to ../topomaps/bags and run the rosbag record command in the third pane
 tmux select-pane -t 2

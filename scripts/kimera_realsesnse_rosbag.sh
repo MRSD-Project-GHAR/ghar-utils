@@ -40,7 +40,7 @@ tmux send-keys "roslaunch semantic_segmentation_ros segmenter.launch" Enter
 
 # Run the rosbag
 tmux select-pane -t 3
-tmux send-keys "sleep 6 && rosbag play mrsd-lab-back.bag --clock" Enter
+tmux send-keys "sleep 6 && rosbag play mrsd-lab-back-no-tf.bag --clock" Enter
 
 # Run rviz
 tmux select-pane -t 4
