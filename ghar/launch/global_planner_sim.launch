@@ -1,0 +1,5 @@
+<launch>
+
+<include file="$(find mbf_rrts_planner)/launch/planner_move_base.launch" />
+
+</launch>
