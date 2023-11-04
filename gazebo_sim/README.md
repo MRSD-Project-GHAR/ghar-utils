@@ -2,7 +2,7 @@
 
 ## 1. Make sure all the packages are installed. 
 ```
-sudo apt-get install ros-$ROS_DISTRO-turtlebot3-* ros-$ROS_DISTRO-rtabmap-ros ros-$ROS_DISTRO-elevation-mapping ros-$ROS_DISTRO-move-base ros-$ROS_DISTRO-move-base-*
+sudo apt-get install ros-$ROS_DISTRO-turtlebot3-* ros-$ROS_DISTRO-rtabmap-ros ros-$ROS_DISTRO-move-base ros-$ROS_DISTRO-move-base-*
 ```
 
 Clone the `ha_planner` package in your workspace
